@@ -41,7 +41,7 @@ func main() {
 
 	if err != nil {
 		fmt.Printf("Failed to initialize new session: %v", err)
-		return
+		os.Exit(1)
 	}
 	fileName := os.Getenv("FILE_NAME")
 	bucketName := os.Getenv("BUCKET_NAME")
@@ -50,7 +50,7 @@ func main() {
 
 	if err != nil {
 		fmt.Printf("Couldn't download file: %v", err)
-		return
+		os.Exit(1)
 	}
 	file, _ := os.Open(fileName)
 	reader := csv.NewReader(file)
