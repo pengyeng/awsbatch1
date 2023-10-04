@@ -50,7 +50,8 @@ func (p Processor) Process() error {
 	err = DownloadFile(downloader, bucketName, fileName)
 
 	if err != nil {
-		return err
+		fmt.Printf("Couldn't download file: %v", err)
+		return
 	}
 	file, _ := os.Open(fileName)
 	reader := csv.NewReader(file)
