@@ -31,7 +31,9 @@ func DownloadFile(downloader *s3manager.Downloader, bucketName string, fileName 
 	return err
 }
 
-func main() {
+type Processor struct{}
+
+func (p Processor) Process() error {
 	sess, err := session.NewSessionWithOptions(session.Options{
 		Profile: "default",
 		Config: aws.Config{
@@ -40,8 +42,7 @@ func main() {
 	})
 
 	if err != nil {
-		fmt.Printf("Failed to initialize new session: %v", err)
-		os.Exit(1)
+		return err
 	}
 	fileName := os.Getenv("FILE_NAME")
 	bucketName := os.Getenv("BUCKET_NAME")
@@ -49,8 +50,7 @@ func main() {
 	err = DownloadFile(downloader, bucketName, fileName)
 
 	if err != nil {
-		fmt.Printf("Couldn't download file: %v", err)
-		os.Exit(1)
+		return err
 	}
 	file, _ := os.Open(fileName)
 	reader := csv.NewReader(file)
@@ -64,4 +64,12 @@ func main() {
 		}
 	}
 	fmt.Println("==== AWS Batch End ====")
+	return nil
+}
+
+func main() {
+
+	var myJobLauncher JobLauncher
+	myProcessor := Processor{}
+	myJobLauncher.Run(myProcessor)
 }
