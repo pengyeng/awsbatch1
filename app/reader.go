@@ -13,11 +13,11 @@ type MyReader struct {
 }
 
 func (r *MyReader) Read() ([]batch103.BatchData, error) {
-	log.Println("Running Reader")
+
 	var result []batch103.BatchData
 	r.SetFileName("test1.csv")
 	err := r.DownloadFileFromS3Bucket(os.Getenv("REGION"), os.Getenv("BUCKET_NAME"))
-	//err := r.DownloadFileFromS3Bucket("ap-southeast-1", "aws-batch-file-repo1")
+	//err := r.DownloadFileFromS3Bucket("ap-southeast-1", "aws-batch-file-repo")
 	if err != nil {
 		return result, err
 	}
