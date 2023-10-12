@@ -15,8 +15,10 @@ type MyReader struct {
 func (r *MyReader) Read() ([]batch103.BatchData, error) {
 
 	var result []batch103.BatchData
-	r.SetFileName(os.Getenv("FILE_NAME"))
-	err := r.DownloadFileFromS3Bucket(os.Getenv("REGION"), os.Getenv("BUCKET_NAME"))
+	var myAWSUtil = &batch103.AWSUtils{}
+	r.FileReader.SetFileName(os.Getenv("FILE_NAME"))
+	myAWSUtil.SetRegion(os.Getenv("REGION"))
+	err := myAWSUtil.DownloadFileFromS3Bucket(os.Getenv("BUCKET_NAME"), r.FileReader.GetFileName())
 	if err != nil {
 		return result, err
 	}
@@ -41,6 +43,5 @@ func (r *MyReader) Read() ([]batch103.BatchData, error) {
 		batchData = batchData.Create(input)
 		result = append(result, *batchData)
 	}
-	log.Println("No Of Record Retrieved ", len(result))
 	return result, nil
 }

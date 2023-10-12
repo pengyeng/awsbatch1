@@ -8,6 +8,8 @@ github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHW
 github.com/jmespath/go-jmespath/internal/testify v1.5.1/go.mod h1:L3OGu8Wl2/fWfCI6z80xFu9LTZmf1ZRjMHUOPmWr69U=
 github.com/pengyeng/batch103 v0.0.0-20231012094254-49e6f28eb78c h1:Jo8IlhAEZf2RNBv3IaNt7Ad5xOrYBKy1R2ylFNsv2mE=
 github.com/pengyeng/batch103 v0.0.0-20231012094254-49e6f28eb78c/go.mod h1:CRgBgixA7yaZyy48PsidqbhAPOtd+VscGJlLYsNB+iM=
+github.com/pengyeng/batch103 v0.0.0-20231012162235-7290a6b3a0a0 h1:gY/tM+EFlpqcrXU5ScHpUOG94AJMAAQgskEj3Pd5AkI=
+github.com/pengyeng/batch103 v0.0.0-20231012162235-7290a6b3a0a0/go.mod h1:CRgBgixA7yaZyy48PsidqbhAPOtd+VscGJlLYsNB+iM=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
